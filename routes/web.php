@@ -14,6 +14,9 @@ Route::get('/public', function () {
 
 // Protected routes - require authentication
 Route::middleware('auth')->group(function () {
+    Route::get('/public', function () {
+        return view('public');
+    })->name('public');
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
